@@ -4,9 +4,16 @@ class ImagesListViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private var tableView: UITableView!
 
-    // MARK: - Private met
+    // MARK: - Properties
     private let photosName: [String] = Array(0..<20).map{ "\($0)" }
 
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
     // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +24,6 @@ class ImagesListViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
-    }()
 }
 
     // MARK: - extension
