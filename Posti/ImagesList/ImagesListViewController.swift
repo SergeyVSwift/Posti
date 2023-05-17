@@ -1,14 +1,21 @@
 import UIKit
 
 class ImagesListViewController: UIViewController {
-   
+    // MARK: - Outlets
     @IBOutlet private var tableView: UITableView!
 
+    // MARK: - Private met
     private let photosName: [String] = Array(0..<20).map{ "\($0)" }
 
+    // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+    }
+    
+    /// White StatusBar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     private lazy var dateFormatter: DateFormatter = {
@@ -19,6 +26,7 @@ class ImagesListViewController: UIViewController {
     }()
 }
 
+    // MARK: - extension
 extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photosName.count
