@@ -62,9 +62,9 @@
 		C500A1BA29FAC44200FEF9AC /* Posti */ = {
 			isa = PBXGroup;
 			children = (
-				C5DEE5AB2A23AC3F000B7680 /* SingleImageView */,
-				C5DEE5A82A23AA2B000B7680 /* Profile */,
 				C555D88929FEA51400CE2A50 /* ImagesList */,
+				C5DEE5A82A23AA2B000B7680 /* Profile */,
+				C5DEE5AB2A23AC3F000B7680 /* SingleImageView */,
 				C555D88829FEA4FC00CE2A50 /* Appliccation */,
 				C555D88729FEA4A100CE2A50 /* Resources */,
 			);
