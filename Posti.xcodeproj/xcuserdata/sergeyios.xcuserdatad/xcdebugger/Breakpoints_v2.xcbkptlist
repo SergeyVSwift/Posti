@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B529E81F-4F84-4055-A984-EBB15B05C4E6"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E36F814-C738-41A7-8A27-A547FAE09FF1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Posti/SingleImageViewController/SingleImageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "image"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Posti/ImagesList/ImagesListCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "ImagesListCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4 - 3a9265bd0572e38c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Posti.ImagesListCell.dateLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Posti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4 - 22aa52ebec5d2760"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Posti.ImagesListCell.dateLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Posti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4 - 8e38fc15ff81c0eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Posti.ImagesListCell.dateLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Posti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4 - ad70638dd64527b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Posti.ImagesListCell.dateLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Posti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4 - 1a6d0239b42e97b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Posti.ImagesListCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; Posti.ImagesListCell"
+                  moduleName = "Posti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "30EFBD8C-82B4-4270-A3B0-462066392FF4 - a99127519ad71c7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Posti.ImagesListCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Posti.ImagesListCell&gt;"
+                  moduleName = "Posti"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A53EDD34-B447-40D7-8831-69EEC746F994"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Posti/Auth/WebViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "WebViewViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
