@@ -293,11 +293,25 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4T-cx-zDE">
+                                <rect key="frame" x="0.0" y="59" width="64" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="sKF-9h-lLV"/>
+                                    <constraint firstAttribute="height" constant="44" id="tYU-3T-GYP"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="nav_back_button"/>
+                                <connections>
+                                    <action selector="didTapBackButton:" destination="Wji-Ns-Bzf" eventType="touchUpInside" id="t4Z-Pb-6KY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sSp-1E-6NZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zek-Kg-WoS" firstAttribute="top" secondItem="fnO-fY-dWr" secondAttribute="top" constant="59" id="2k1-aZ-6DH" userLabel="Web View.top = top "/>
+                            <constraint firstItem="M4T-cx-zDE" firstAttribute="leading" secondItem="sSp-1E-6NZ" secondAttribute="leading" id="3pB-r1-r1K"/>
+                            <constraint firstItem="M4T-cx-zDE" firstAttribute="top" secondItem="sSp-1E-6NZ" secondAttribute="top" id="TMn-P5-0OM"/>
                             <constraint firstItem="zek-Kg-WoS" firstAttribute="leading" secondItem="fnO-fY-dWr" secondAttribute="leading" id="XDx-nM-aSw"/>
                             <constraint firstAttribute="trailing" secondItem="zek-Kg-WoS" secondAttribute="trailing" id="czb-fF-bN2"/>
                             <constraint firstAttribute="bottom" secondItem="zek-Kg-WoS" secondAttribute="bottom" constant="34" id="i7o-P6-ywS" userLabel="bottom = Web View.bottom"/>
@@ -305,7 +319,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wBg-xh-OZe"/>
                     <connections>
-                        <outlet property="webView" destination="zek-Kg-WoS" id="EcM-mO-Wfc"/>
+                        <outlet property="webView" destination="zek-Kg-WoS" id="BAk-aL-CRl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJn-sr-qpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -317,6 +331,7 @@
         <image name="0" width="200" height="132"/>
         <image name="like_button_on" width="42" height="42"/>
         <image name="logoLogin" width="20" height="20"/>
+        <image name="nav_back_button" width="24" height="24"/>
         <image name="nav_back_button_white" width="24" height="24"/>
         <image name="share_button" width="50" height="50"/>
         <image name="tab_editorial_active" width="30" height="30"/>
