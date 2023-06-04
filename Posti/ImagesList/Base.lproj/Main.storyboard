@@ -305,26 +305,33 @@
                                     <action selector="didTapBackButton:" destination="Wji-Ns-Bzf" eventType="touchUpInside" id="t4Z-Pb-6KY"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Fn-9z-V8h">
+                                <rect key="frame" x="0.0" y="99" width="393" height="4"/>
+                                <color key="progressTintColor" red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sSp-1E-6NZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zek-Kg-WoS" firstAttribute="top" secondItem="fnO-fY-dWr" secondAttribute="top" constant="59" id="2k1-aZ-6DH" userLabel="Web View.top = top "/>
                             <constraint firstItem="M4T-cx-zDE" firstAttribute="leading" secondItem="sSp-1E-6NZ" secondAttribute="leading" id="3pB-r1-r1K"/>
+                            <constraint firstItem="1Fn-9z-V8h" firstAttribute="trailing" secondItem="fnO-fY-dWr" secondAttribute="trailing" id="Lko-kN-meo"/>
                             <constraint firstItem="M4T-cx-zDE" firstAttribute="top" secondItem="sSp-1E-6NZ" secondAttribute="top" id="TMn-P5-0OM"/>
                             <constraint firstItem="zek-Kg-WoS" firstAttribute="leading" secondItem="fnO-fY-dWr" secondAttribute="leading" id="XDx-nM-aSw"/>
                             <constraint firstAttribute="trailing" secondItem="zek-Kg-WoS" secondAttribute="trailing" id="czb-fF-bN2"/>
                             <constraint firstAttribute="bottom" secondItem="zek-Kg-WoS" secondAttribute="bottom" constant="34" id="i7o-P6-ywS" userLabel="bottom = Web View.bottom"/>
+                            <constraint firstItem="1Fn-9z-V8h" firstAttribute="leading" secondItem="fnO-fY-dWr" secondAttribute="leading" id="pdE-p1-UP7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wBg-xh-OZe"/>
                     <connections>
+                        <outlet property="progressView" destination="1Fn-9z-V8h" id="h5s-Ae-mAR"/>
                         <outlet property="webView" destination="zek-Kg-WoS" id="BAk-aL-CRl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJn-sr-qpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589" y="-1102"/>
+            <point key="canvasLocation" x="1588.5496183206105" y="-1102.1126760563382"/>
         </scene>
     </scenes>
     <resources>
