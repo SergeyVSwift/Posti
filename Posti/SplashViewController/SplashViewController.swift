@@ -46,7 +46,7 @@ final class SplashViewController: UIViewController {
     }
 }
 
-
+//MARK: - Extension
 extension SplashViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ShowAuthenticationScreenSegueIdentifier {
