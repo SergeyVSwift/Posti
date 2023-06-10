@@ -1,5 +1,6 @@
 import UIKit
 
+// MARK: - SplashViewController
 final class SplashViewController: UIViewController {
     private let ShowAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreen"
     
