@@ -212,11 +212,11 @@
             <objects>
                 <viewController id="0uG-0t-sWC" customClass="AuthViewController" customModule="Posti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eQp-C4-qmV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoLogin" translatesAutoresizingMaskIntoConstraints="NO" id="jd9-qV-IfC">
-                                <rect key="frame" x="166.66666666666666" y="361.66666666666669" width="60" height="60"/>
+                                <rect key="frame" x="166.66666666666666" y="396" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7eE-Jg-aSY"/>
                                     <constraint firstAttribute="width" constant="60" id="VQs-PV-hgp"/>
@@ -266,7 +266,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="gbi-1h-d06"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wc2-zb-an3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -355,7 +355,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Unsplash" id="a4H-Rp-LsO"/>
                     <connections>
-                        <segue destination="lUx-kf-U99" kind="presentation" identifier="ShowAuthenticationScreen" id="hRj-Er-33M"/>
+                        <segue destination="lUx-kf-U99" kind="presentation" identifier="ShowAuthenticationScreen" modalPresentationStyle="fullScreen" id="hRj-Er-33M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mc-tB-fe3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
