@@ -11,13 +11,11 @@ final class WebViewViewController: UIViewController {
         delegate?.webViewViewControllerDidCancel(self)
     }
     
-    
     weak var delegate: WebViewViewControllerDelegate?
     
     // MARK: - override
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         webView.navigationDelegate = self
         
