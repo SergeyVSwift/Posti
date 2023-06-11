@@ -1,4 +1,5 @@
 import UIKit
+import ProgressHUD
 
 // MARK: - SplashViewController
 final class SplashViewController: UIViewController {
@@ -35,12 +36,15 @@ final class SplashViewController: UIViewController {
     
     private func fetchOAuthToken(_ code: String) {
         oauth2Service.fetchOAuthToken(code) { [weak self] result in
+            
             guard let self = self else { return }
             switch result {
             case .success:
                 self.switchToTabBarController()
+                ProgressHUD.dismiss()
             case .failure:
-                break
+                ProgressHUD.dismiss()
+                // TODO Показать ошибку
             }
         }
     }
@@ -63,6 +67,7 @@ extension SplashViewController {
 
 extension SplashViewController: AuthViewControllerDelegate {
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
+        ProgressHUD.show()
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             self.fetchOAuthToken(code)
