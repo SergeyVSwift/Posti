@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "1e2c90229d32aeabbdc77737cd0e1534d94fd89d639f814c9b9b77179709032a"
+build_start_time: [1685654698, 409064054]
+build_end_time: [1685654698, 691723823]
+inputs:
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/Appliccation/AppDelegate.swift": [1682626761, 842914104]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/Appliccation/Constants.swift": [1685571288, 92645168]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/Appliccation/SceneDelegate.swift": [1682607298, 894676685]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/Auth/AuthViewController.swift": [1685571288, 93033790]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListCell.swift": [1685396114, 489146709]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/ImagesList/ImagesListViewController.swift": [1685571310, 499088287]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/Profile/ProfileViewController.swift": [1685571310, 499546051]
+  "/Users/sergeyios/Desktop/projects/Posti/Posti/SingleImageView/SingleImageViewController.swift": [1685374218, 648591041]
