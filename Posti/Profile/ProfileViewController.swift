@@ -46,6 +46,9 @@ final class ProfileViewController: UIViewController {
         return logoutButton
     }()
     
+    private let profileService = ProfileService.shared
+    private let profileImageService = ProfileImageService.shared
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
