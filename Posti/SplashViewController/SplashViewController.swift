@@ -57,7 +57,7 @@ final class SplashViewController: UIViewController {
         window.rootViewController = tabBarController
     }
 }
-    
+
 extension SplashViewController: AuthViewControllerDelegate {
     
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
