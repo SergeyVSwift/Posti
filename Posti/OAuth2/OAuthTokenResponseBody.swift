@@ -1,4 +1,4 @@
-import Foundation
+/*import Foundation
 
 enum CodingKeys: String, CodingKey {
     case accessToken = "access_token"
@@ -13,3 +13,4 @@ struct OAuthTokenResponseBody: Decodable {
     let scope: String
     let createdAt: Int
 }
+*/

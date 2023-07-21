@@ -4,19 +4,14 @@ final class OAuth2Service {
     
     static private let shared = OAuth2Service()
     private let urlSession = URLSession.shared
-    private let tokenStorage = OAuth2TokenStorage.shared
     private var task: URLSessionTask?
     private var lastCode: String?
     
-    
     private (set) var authToken: String? {
-        get {
-            return OAuth2TokenStorage.token
-        }
-        set {
-            OAuth2TokenStorage.token = newValue
-        }
+        get { return OAuth2TokenStorage().token }
+        set { OAuth2TokenStorage().token = newValue }
     }
+    
     
     func fetchAuthToken(code: String, handler: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
@@ -45,9 +40,9 @@ final class OAuth2Service {
     private func authTokenRequest(code: String) -> URLRequest? {
         URLRequest.makeHTTPRequest(
             path: "/oauth/token"
-            + "?client_id=\(Constants.accessKey)"
-            + "&&client_secret=\(Constants.secretKey)"
-            + "&&redirect_uri=\(Constants.redirectURI)"
+            + "?client_id=\(accessKey)"
+            + "&&client_secret=\(secretKey)"
+            + "&&redirect_uri=\(redirectURI)"
             + "&&code=\(code)"
             + "&&grant_type=authorization_code",
             httpMethod: "POST",
@@ -72,18 +67,12 @@ final class OAuth2Service {
     // MARK: - Request
     
 extension URLRequest {
-    static func makeHTTPRequest(
-        path: String,
-        httpMethod: String,
-        baseURL: URL = Constants.defaultBaseURL
-    ) -> URLRequest {
-        var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
+    static func makeHTTPRequest(path: String, httpMethod: String, baseURL: URL = defaultBaseURL) -> URLRequest {
+        guard let url = URL(string: path, relativeTo: baseURL) else {
+            assert(false, "Invalid URL")
+            assertionFailure("Invalid URL")}
+        var request = URLRequest(url: url)
         request.httpMethod = httpMethod
         return request
     }
-}
-    
-private enum NetworkError: Error {
-    case codeError
-    
 }

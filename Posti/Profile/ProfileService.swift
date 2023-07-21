@@ -10,7 +10,7 @@ import UIKit
 final class ProfileService {
     
     static let shared = ProfileService()
-    private(set) var profile: Profile?
+    private (set) var profile: Profile?
     private var lastProfileCode: String?
     private var task: URLSessionTask?
     private let urlSession = URLSession.shared
@@ -52,27 +52,28 @@ final class ProfileService {
         }
         task?.resume()
     }
+
     
     private func makeRequest(token: String) -> URLRequest {
-        guard let url = URL(string: "\(Constants.defaultBaseURL)" + "/me") else { fatalError("Failed to create URL") }
+        guard let url = URL(string: "\(defaultBaseURL)" + "/me") else { fatalError("Failed to create URL") }
         var request = URLRequest(url: url)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
     }
-}
+    
+    // MARK: - Structs
 
-// MARK: - Structs
+    struct Profile {
+        let username: String
+        let name: String
+        let loginName: String
+        let bio: String
+    }
 
-struct Profile {
-    let username: String
-    let name: String
-    let loginName: String
-    let bio: String
-}
-
-struct ProfileResult: Decodable {
-    let username: String
-    let first_name: String
-    let last_name: String
-    let bio: String?
+    struct ProfileResult: Decodable {
+        let username: String
+        let first_name: String
+        let last_name: String
+        let bio: String?
+    }
 }

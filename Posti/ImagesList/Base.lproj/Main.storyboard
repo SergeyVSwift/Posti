@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lUx-kf-U99">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <!--ImageList-->
         <scene sceneID="1Q2-vH-kI4">
             <objects>
-                <viewController storyboardIdentifier="ImagesListViewController" title="ImageList" id="KNd-AX-DCk" customClass="ImagesListViewController" customModule="Posti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImagesListViewController" title="ImageList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KNd-AX-DCk" customClass="ImagesListViewController" customModule="Posti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uKr-1G-m40">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +172,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="6NB-qf-TZl">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="hic-8g-Wpe" customClass="TabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hic-8g-Wpe" customClass="TabBarController" customModule="Posti" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="onY-GL-IMz">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -185,12 +186,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RV3-fc-WVH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="560" y="-170"/>
+            <point key="canvasLocation" x="-1103" y="-566"/>
         </scene>
         <!--AuthViewController-->
         <scene sceneID="r3g-Ss-F8A">
             <objects>
-                <viewController storyboardIdentifier="AuthViewController" id="0uG-0t-sWC" userLabel="AuthViewController" customClass="AuthViewController" customModule="Posti" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0uG-0t-sWC" userLabel="AuthViewController" customClass="AuthViewController" customModule="Posti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eQp-C4-qmV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,25 +239,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTr-ME-XeS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1694" y="-1102"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="39w-17-pPM">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUx-kf-U99" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="gbi-1h-d06"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wc2-zb-an3">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0uG-0t-sWC" kind="relationship" relationship="rootViewController" id="7XK-qi-DhO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m5M-rj-UO7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="560" y="-1102"/>
         </scene>
         <!--Web View View Controller-->
         <scene sceneID="8H9-Ec-UIh">
@@ -314,6 +296,46 @@
             </objects>
             <point key="canvasLocation" x="2868" y="-1102"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="39w-17-pPM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUx-kf-U99" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gbi-1h-d06"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wc2-zb-an3">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0uG-0t-sWC" kind="relationship" relationship="rootViewController" id="7XK-qi-DhO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m5M-rj-UO7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="-1102"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wKH-qA-oZX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uok-zt-Yig" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="rectangle.stack.fill" catalog="system" id="G6x-AR-g6R"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tlU-6P-KFu">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="YP Black"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOn-pz-9Hu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="560" y="-170"/>
+        </scene>
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
@@ -321,8 +343,12 @@
         <image name="logoLogin" width="20" height="20"/>
         <image name="nav_back_button" width="24" height="24"/>
         <image name="nav_back_button_white" width="24" height="24"/>
+        <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
         <image name="share_button" width="50" height="50"/>
         <image name="tab_editorial_active" width="30" height="30"/>
+        <namedColor name="YP Black">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
