@@ -3,110 +3,21 @@ import Kingfisher
 
 final class ProfileViewController: UIViewController {
     
-    private let storageToken = OAuth2TokenStorage()
+    private let profileImage = UIImageView()
+    private let surnameLabel = UILabel()
+    private let emailLabel = UILabel()
+    private let someTextLabel = UILabel()
+    private let exitButton = UIButton()
     private let profileService = ProfileService.shared
-    private let profileImageService = ProfileImageService.shared
     private var profileImageServiceObserver: NSObjectProtocol?
     
-    // MARK: - Properties
-    
-    private lazy var avatar: UIImageView = {
-        let profileimage = UIImage(named: "Photo")
-        let avatar = UIImageView(image: profileimage)
-        avatar.translatesAutoresizingMaskIntoConstraints = false
-        return avatar
-    }()
-    
-    private lazy var nameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.text = "Екатерина Новикова"
-        nameLabel.textColor = .white
-        nameLabel.font = UIFont.systemFont(ofSize: 23, weight: .bold)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        return nameLabel
-    }()
-    
-    private lazy var loginLabel: UILabel = {
-        let loginLabel = UILabel()
-        loginLabel.text = "@ekaterina_nov"
-        loginLabel.textColor = .gray
-        loginLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        loginLabel.translatesAutoresizingMaskIntoConstraints = false
-        return loginLabel
-    }()
-    
-    private lazy var descriptionLabel: UILabel = {
-        let descriptionLabel = UILabel()
-        descriptionLabel.text = "Hello, world!"
-        descriptionLabel.textColor = .white
-        descriptionLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        return descriptionLabel
-    }()
-    
-    private lazy var logoutButton: UIButton = {
-        let logoutButton = UIButton()
-        logoutButton.setImage(UIImage(named: "logoutbutton"), for: .normal)
-        logoutButton.tintColor = .red
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        return logoutButton
-    }()
-    
-    // MARK: - private func system
-    
-    private func addSubViews() {
-        view.addSubview(avatar)
-        view.addSubview(nameLabel)
-        view.addSubview(loginLabel)
-        view.addSubview(descriptionLabel)
-        view.addSubview(logoutButton)
-    }
-    
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            avatar.widthAnchor.constraint(equalToConstant: 70),
-            avatar.heightAnchor.constraint(equalToConstant: 70),
-            avatar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-            avatar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nameLabel.topAnchor.constraint(equalTo: avatar.bottomAnchor, constant: 8),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            loginLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            descriptionLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            logoutButton.widthAnchor.constraint(equalToConstant: 24),
-            logoutButton.heightAnchor.constraint(equalToConstant: 24),
-            logoutButton.centerYAnchor.constraint(equalTo: avatar.centerYAnchor),
-            logoutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
-        ])
-    }
-    
-    private func updateProfileDetails(profile: ProfileService.Profile) {
-        nameLabel.text = profile.name
-        loginLabel.text = profile.loginName
-        descriptionLabel.text = profile.bio
-    }
-    
-    private func updateAvatar() {
-        guard
-            let avatarURL = profileImageService.avatarURL,
-            let url = URL(string: avatarURL)
-        else { return }
-        let processor = RoundCornerImageProcessor(cornerRadius: 61)
-        avatar.kf.setImage(with: url, options: [.processor(processor)])
-    }
-    
-    //MARK: - Lifecycle
-    
     override func viewDidLoad() {
-        
-        addSubViews()
-        setupConstraints()
-        
+        super.viewDidLoad()
+        view.backgroundColor = .ypBlack
+        configView()
+        makeConstraints()
         updateProfileDetails(profile: profileService.profile!)
-        updateAvatar()
-        
-        profileImageServiceObserver = NotificationCenter.default 
+        profileImageServiceObserver = NotificationCenter.default
             .addObserver(
                 forName: ProfileImageService.didChangeNotification,
                 object: nil,
@@ -115,6 +26,76 @@ final class ProfileViewController: UIViewController {
                 guard let self = self else { return }
                 self.updateAvatar()
             }
+        updateAvatar()
+    }
+    
+    private func configView() {
+        view.addSubview(profileImage)
+        view.addSubview(surnameLabel)
+        view.addSubview(emailLabel)
+        view.addSubview(someTextLabel)
+        view.addSubview(exitButton)
+        
+        profileImage.image = UIImage(named: "avatar_image")
+        surnameLabel.text = "Sergey o_0"
+        surnameLabel.font = .systemFont(ofSize: 23, weight: .bold)
+        surnameLabel.textColor = .ypWhite
+        emailLabel.text = "SergeyVSwift"
+        emailLabel.font = .systemFont(ofSize: 13)
+        emailLabel.textColor = .ypGray
+        someTextLabel.text = "another day"
+        someTextLabel.font = .systemFont(ofSize: 13)
+        someTextLabel.textColor = .ypWhite
+        exitButton.setImage(UIImage(named: "logoutbutton"), for: .normal)
+        exitButton.tintColor = .ypRed
         
     }
+    
+    private func makeConstraints() {
+        profileImage.translatesAutoresizingMaskIntoConstraints = false
+        surnameLabel.translatesAutoresizingMaskIntoConstraints = false
+        emailLabel.translatesAutoresizingMaskIntoConstraints = false
+        someTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        exitButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            profileImage.widthAnchor.constraint(equalToConstant: 70),
+            profileImage.heightAnchor.constraint(equalToConstant: 70),
+            profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 76),
+            profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            surnameLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 8),
+            surnameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            emailLabel.topAnchor.constraint(equalTo: surnameLabel.bottomAnchor, constant: 8),
+            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            someTextLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 8),
+            someTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            exitButton.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),
+            exitButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -26)
+        ])
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let url = URL(string: profileImageURL)
+        else { return }
+        let processor = RoundCornerImageProcessor(cornerRadius: 61)
+        profileImage.kf.indicatorType = .activity
+        profileImage.kf.setImage(with: url,
+                                 placeholder: UIImage(named: "avatar_image"),
+                                 options: [.processor(processor),.cacheSerializer(FormatIndicatedCacheSerializer.png)])
+        let cache = ImageCache.default
+        cache.clearDiskCache()
+        cache.clearMemoryCache()
+    }
 }
+
+extension ProfileViewController {
+    private func updateProfileDetails(profile: Profile?) {
+        guard let profile = profileService.profile else { return }
+        surnameLabel.text = profile.name
+        emailLabel.text = profile.loginName
+        someTextLabel.text = profile.bio
+    }
+}
+

@@ -1,54 +1,58 @@
 import UIKit
 
-final class ProfileImageService{
-    
+final class ProfileImageService {
     static let shared = ProfileImageService()
+    static let didChangeNotification = Notification.Name("ProfileImageProviderDidChange")
     private (set) var avatarURL: String?
-    private var urlSession = URLSession.shared
+    private let urlSession = URLSession.shared
     private var task: URLSessionTask?
-    
-    static let didChangeNotification = Notification.Name(rawValue: "ProfileImageProviderDidChange")
+    private let storageToken = OAuth2TokenStorage()
     
     func fetchProfileImageURL(username: String, _ completion: @escaping (Result<String, Error>) -> Void) {
+        assert(Thread.isMainThread)
         
-        guard let url = URL(string: "/users/\(username)", relativeTo: defaultBaseURL) else {
-            print("Wrong URL")
-            return
-        }
-        
-        guard let token = OAuth2TokenStorage().token else {return}
-        var request = URLRequest(url: url)
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        
-        task = urlSession.objectTask(for: request) { (result: Result<UserResult, Error>) in
-            
-            switch result{
-            case .success(let url):
-                
-                guard let avatarURL = url.profileImage["small"] else {return}
-                self.avatarURL = avatarURL
-                
+        let request = makeRequest(token: storageToken.token!, username: username)
+        let session = URLSession.shared
+        let task = session.objectTask(for: request) { [weak self] (result: Result<UserResult, Error>) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let decodedObject):
+                let avatarURL = ProfileImage(decodedData: decodedObject)
+                self.avatarURL = avatarURL.profileImage["small"]
+                completion(.success(self.avatarURL!))
                 NotificationCenter.default
-                    .post(name: ProfileImageService.didChangeNotification,
-                    object: self,
-                    userInfo: ["URL": avatarURL])
-                
-                completion(.success(avatarURL))
+                    .post(
+                        name: ProfileImageService.didChangeNotification,
+                        object: self,
+                        userInfo: ["URL": self.avatarURL!])
             case .failure(let error):
-                print(error)
                 completion(.failure(error))
             }
         }
-        
-        task?.resume()
+        self.task = task
+        task.resume()
     }
     
+    private func makeRequest(token: String, username: String) -> URLRequest {
+        guard let url = URL(string: "\(Constants.defaultBaseURL)" + "/users/" + username) else { fatalError("Failed to create URL") }
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        return request
+    }
+}
+
+struct UserResult: Codable {
+    let profileImage: [String:String]
     
-    struct UserResult: Codable {
-        var profileImage: [String: String]
-        
-        enum CodingKeys: String, CodingKey{
-            case profileImage = "profile_image"
-        }
+    enum CodingKeys: String, CodingKey {
+        case profileImage = "profile_image"
+    }
+}
+
+struct ProfileImage: Codable {
+    let profileImage: [String:String]
+    
+    init(decodedData: UserResult) {
+        self.profileImage = decodedData.profileImage
     }
 }

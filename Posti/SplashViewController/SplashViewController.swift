@@ -57,64 +57,55 @@ final class SplashViewController: UIViewController {
         window.rootViewController = tabBarController
     }
 }
-
-extension SplashViewController: AuthViewControllerDelegate {
     
+extension SplashViewController: AuthViewControllerDelegate {
     func authViewController(_ vc: AuthViewController, didAuthenticateWithCode code: String) {
-        
         UIBlockingProgressHUD.show()
-        
-        oAuth2Service.fetchAuthToken(code: code) {[weak self] result in
+        dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            self.fetchOAuthToken(code)
+        }
+    }
+    
+    private func fetchOAuthToken(_ code: String) {
+        oAuth2Service.fetchAuthToken(code: code) { [ weak self ] result in
             guard let self = self else {return}
-            
             switch result {
-            case .success(let authToken):
-                print("TOKEN: \(authToken)")
-                self.fetchProfileSplash(token: authToken)
-                
-            case .failure(let error):
-                
+            case .success(let token):
+                print("token - \(token)")
+                self.switchToTabBarController()
+                self.oauth2TokenStorage.token = token
+                self.fetchProfileSplash(token: token)
                 UIBlockingProgressHUD.dismiss()
-                
-                let alert = UIAlertController(title: "Что-то пошло не так(",
-                                              message: "Не удалось войти в систему",
-                                              preferredStyle: .alert)
-                
-                let action = UIAlertAction(title: "Ok", style: .default)
-                
-                alert.addAction(action)
-                vc.present(self, animated: true)
-                
-                print(error)
+            case .failure(let error):
+                self.showAlert(with: error)
+                UIBlockingProgressHUD.dismiss()
             }
         }
     }
     
-    private func fetchProfileSplash(token: String){
-        
-        profileService.fetchProfile(token) { [weak self] profileInfo  in
-                
-                guard let self = self else {return}
-                
-                switch profileInfo{
-                case .success(let profile):
-                    
-                    ProfileImageService.shared.fetchProfileImageURL(username: profile.username) {urlResult in
-                        switch urlResult {
-                        case .success(let url):
-                            return
-                        case .failure(let error):
-                            return
-                        }
-                    }
-                    
-                    UIBlockingProgressHUD.dismiss()
-                    self.switchToTabBarController()
-                case .failure(let error):
-                    UIBlockingProgressHUD.dismiss()
-                    print(error)
-                }
+    private func fetchProfileSplash(token: String) {
+        profileService.fetchProfile(token) { [weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success(let profile):
+                self.switchToTabBarController()
+                guard let username = self.profileService.profile?.userName else { return }
+                self.profileImageService.fetchProfileImageURL(username: username) { _ in }
+            case .failure(let error):
+                self.showAlert(with: error)
+                print(error)
+            }
         }
-        
+        UIBlockingProgressHUD.dismiss()
     }
+        
+        private func showAlert(with error: Error) {
+            let alert = UIAlertController(
+                title: "Что-то пошло не так",
+                message: "Не удалось войти в систему",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+        }
 }
