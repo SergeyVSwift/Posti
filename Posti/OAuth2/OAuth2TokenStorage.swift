@@ -5,7 +5,7 @@ enum TokenStorageKeys: String {
     case tokenKey = "BearerToken"
 }
 
-class OAuth2TokenStorage {
+final class OAuth2TokenStorage {
     private let keychain = KeychainWrapper.standard
 
     var token: String? {
