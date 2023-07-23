@@ -1,5 +1,6 @@
 import UIKit
 
+// MARK: - AuthViewController
 final class AuthViewController: UIViewController {
 
     private let segueID = "ShowWebView"
