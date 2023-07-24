@@ -12,6 +12,7 @@
 		C500A1C029FAC44200FEF9AC /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C500A1BF29FAC44200FEF9AC /* ImagesListViewController.swift */; };
 		C500A1C529FAC44300FEF9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C500A1C429FAC44300FEF9AC /* Assets.xcassets */; };
 		C500A1C829FAC44300FEF9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C500A1C629FAC44300FEF9AC /* LaunchScreen.storyboard */; };
+		C51605702A6E7C2A009CD475 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516056F2A6E7C2A009CD475 /* ProfilePresenter.swift */; };
 		C525A96A2A629DE500EE1023 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525A9692A629DE500EE1023 /* TabBarController.swift */; };
 		C525A96C2A62A6A700EE1023 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525A96B2A62A6A700EE1023 /* Network.swift */; };
 		C54B18B92A2C8CC900AFA66E /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54B18B82A2C8CC900AFA66E /* OAuth2Service.swift */; };
@@ -53,6 +54,7 @@
 		C500A1C429FAC44300FEF9AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C500A1C729FAC44300FEF9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C500A1C929FAC44300FEF9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C516056F2A6E7C2A009CD475 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		C525A9692A629DE500EE1023 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C525A96B2A62A6A700EE1023 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		C54B18B82A2C8CC900AFA66E /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				C5DEE5A92A23AA7F000B7680 /* ProfileViewController.swift */,
 				C5FA04F42A42133D00CB58FC /* ProfileService.swift */,
 				C5FA04F82A435F0E00CB58FC /* ProfileImageService.swift */,
+				C516056F2A6E7C2A009CD475 /* ProfilePresenter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				C5FA04F52A42133D00CB58FC /* ProfileService.swift in Sources */,
 				C5AFBBF32A6DDE0600C81E10 /* UrlResult.swift in Sources */,
 				C5FA04F32A420FA500CB58FC /* UIBlockingProgressHud.swift in Sources */,
+				C51605702A6E7C2A009CD475 /* ProfilePresenter.swift in Sources */,
 				C500A1C029FAC44200FEF9AC /* ImagesListViewController.swift in Sources */,
 				C5C5E6C02A6D70330018B9BF /* ImagesListService.swift in Sources */,
 				C5AFBBF12A6DDDF000C81E10 /* PhotoResult.swift in Sources */,
