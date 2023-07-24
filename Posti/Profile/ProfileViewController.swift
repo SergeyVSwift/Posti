@@ -20,7 +20,7 @@ final class ProfileViewController: UIViewController {
     private let alertPresenter = AlertPresenter()
     private var profileImageServiceObserver: NSObjectProtocol?
     
-   private lazy var logoutButton: UIButton = {
+    private lazy var logoutButton: UIButton = {
         let logoutButton = UIButton.systemButton(
             with: UIImage(named: "logoutbutton")!,
             target: self,
@@ -110,21 +110,28 @@ final class ProfileViewController: UIViewController {
     private func setupActions() {
         logoutButton.addTarget(self, action: #selector(didTapLogoutButton), for: .touchUpInside)
     }
+
+     static func clean() {
+     HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+             records.forEach { record in
+                 WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+             }
+         }
+     }
     
     @objc private func didTapLogoutButton() {
-        storageToken.clearToken()
-        WebViewViewController.clean()
-        guard let window = UIApplication.shared.windows.first else { fatalError("Invalid window configuration") }
-        window.rootViewController = SplashViewController()
-    }
-    
-    static func clean() {
-        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            records.forEach { record in
-                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-            }
-        }
+        let alert = UIAlertController(
+            title: "Пока, пока!",
+            message: "Уверены? что хотите выйти?",
+            preferredStyle: .alert
+            
+        )
+        alert.addAction(UIAlertAction(title: "Нет", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { _ in
+            self.presenter?.logout()
+        }))
+        present(alert, animated: true)
     }
     
     private func switchToSplashViewController() {
@@ -147,20 +154,8 @@ final class ProfileViewController: UIViewController {
         cleanServicesData()
         switchToSplashViewController()
     }
-    
-    private func showAlert() {
-        let alertController = UIAlertController(
-            title: "Пока, пока!",
-            message: "Уверены, что хотите выйти?",
-            preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
-            guard let self = self else { return }
-            self.logout()
-        }))
-        alertController.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
 }
+
 extension ProfileViewController {
     private func updateProfileDetails(profile: Profile?) {
         guard let profile = profileService.profile else { return }
