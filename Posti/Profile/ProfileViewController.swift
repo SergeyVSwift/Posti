@@ -128,8 +128,9 @@ final class ProfileViewController: UIViewController {
             
         )
         alert.addAction(UIAlertAction(title: "Нет", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { _ in
-            self.presenter?.logout()
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
+            guard let self = self else { return }
+            self.logout()
         }))
         present(alert, animated: true)
     }
