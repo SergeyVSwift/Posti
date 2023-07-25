@@ -47,7 +47,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-JL-MbY" userLabel="Date Label">
-                                                    <rect key="frame" x="8" y="196" width="102" height="16"/>
+                                                    <rect key="frame" x="24" y="196" width="101.66666666666666" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Fwu-AO-o9k" firstAttribute="leading" secondItem="Myo-eA-PI9" secondAttribute="leading" constant="16" id="2jE-0a-H8H"/>
-                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="leading" secondItem="N7a-JL-MbY" secondAttribute="leading" constant="8" id="BJE-rM-QXm"/>
+                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="leading" secondItem="N7a-JL-MbY" secondAttribute="leading" constant="-8" id="BJE-rM-QXm"/>
                                                 <constraint firstItem="rq0-kV-C0b" firstAttribute="trailing" secondItem="Fwu-AO-o9k" secondAttribute="trailing" id="So3-FK-a4M"/>
                                                 <constraint firstItem="Fwu-AO-o9k" firstAttribute="bottom" secondItem="N7a-JL-MbY" secondAttribute="bottom" constant="8" id="T9N-1T-aw0"/>
                                                 <constraint firstAttribute="trailing" secondItem="Fwu-AO-o9k" secondAttribute="trailing" constant="16" id="TAS-Qj-3BY"/>
