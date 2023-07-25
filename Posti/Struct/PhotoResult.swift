@@ -26,3 +26,4 @@ struct PhotoResult: Decodable {
         case height = "height"
     }
 }
+

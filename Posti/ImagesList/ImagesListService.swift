@@ -16,6 +16,8 @@ final class ImagesListService {
     static let shared = ImagesListService()
     private let storageToken = OAuth2TokenStorage()
     private let dateFormatter = ISO8601DateFormatter()
+    private let urlSession = URLSession.shared
+
     
     func fetchPhotosNextPage() {
         assert(Thread.isMainThread)
@@ -48,7 +50,7 @@ final class ImagesListService {
         self.task = task
         task.resume()
     }
-    
+         
     private func photoRequest(page: String, perPage: String) -> URLRequest? {
         guard let url = URL(string: "https://api.unsplash.com") else { return nil }
         var request = URLRequest.makeHTTPRequest(

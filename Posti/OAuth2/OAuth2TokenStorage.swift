@@ -1,6 +1,10 @@
 import Foundation
 import SwiftKeychainWrapper
 
+protocol OAuth2TokenStorageProtocol {
+    var token: String? { get set }
+}
+
 enum TokenStorageKeys: String {
     case tokenKey = "BearerToken"
 }
@@ -21,6 +25,10 @@ final class OAuth2TokenStorage {
                 keychain.removeObject(forKey: TokenStorageKeys.tokenKey.rawValue)
             }
         }
+    }
+    
+    func clearToken() {
+        KeychainWrapper.standard.removeAllKeys()
     }
 }
 

@@ -28,14 +28,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usQ-4n-h4F" userLabel="Date Label">
-                                                    <rect key="frame" x="24.000000000000007" y="196" width="101.66666666666669" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fwu-AO-o9k">
-                                                    <rect key="frame" x="24" y="4" width="361" height="216"/>
+                                                    <rect key="frame" x="16" y="0.0" width="361" height="216"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -52,24 +46,30 @@
                                                         <action selector="likeButtonDidTap:" destination="rEW-ap-LL2" eventType="touchUpInside" id="vI4-px-MBo"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="27 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-JL-MbY" userLabel="Date Label">
+                                                    <rect key="frame" x="24" y="196" width="101.66666666666666" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="usQ-4n-h4F" firstAttribute="leading" secondItem="Fwu-AO-o9k" secondAttribute="leading" constant="8" id="2Oo-vE-rBN"/>
                                                 <constraint firstItem="Fwu-AO-o9k" firstAttribute="leading" secondItem="Myo-eA-PI9" secondAttribute="leading" constant="16" id="2jE-0a-H8H"/>
-                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="bottom" secondItem="usQ-4n-h4F" secondAttribute="bottom" constant="8" id="Rs1-Dh-057"/>
+                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="leading" secondItem="N7a-JL-MbY" secondAttribute="leading" constant="-8" id="BJE-rM-QXm"/>
                                                 <constraint firstItem="rq0-kV-C0b" firstAttribute="trailing" secondItem="Fwu-AO-o9k" secondAttribute="trailing" id="So3-FK-a4M"/>
+                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="bottom" secondItem="N7a-JL-MbY" secondAttribute="bottom" constant="8" id="T9N-1T-aw0"/>
                                                 <constraint firstAttribute="trailing" secondItem="Fwu-AO-o9k" secondAttribute="trailing" constant="16" id="TAS-Qj-3BY"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fwu-AO-o9k" secondAttribute="bottom" constant="4" id="Xug-kw-tXW"/>
                                                 <constraint firstItem="rq0-kV-C0b" firstAttribute="top" secondItem="Fwu-AO-o9k" secondAttribute="top" id="dHQ-sS-0u6"/>
                                                 <constraint firstItem="Fwu-AO-o9k" firstAttribute="top" secondItem="Myo-eA-PI9" secondAttribute="top" constant="4" id="kp4-qN-82d"/>
-                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="usQ-4n-h4F" secondAttribute="trailing" constant="8" id="ryz-OJ-VpS"/>
+                                                <constraint firstItem="Fwu-AO-o9k" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N7a-JL-MbY" secondAttribute="trailing" constant="8" id="wMW-e6-IGX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1019607843" green="0.1058823529" blue="0.1333333333" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cellImage" destination="Fwu-AO-o9k" id="uSG-xU-Ix4"/>
-                                            <outlet property="dateLabel" destination="usQ-4n-h4F" id="Awk-WH-amC"/>
+                                            <outlet property="dateLabel" destination="N7a-JL-MbY" id="v7D-8D-vH6"/>
                                             <outlet property="likeButton" destination="rq0-kV-C0b" id="Y1H-RY-9ub"/>
                                         </connections>
                                     </tableViewCell>

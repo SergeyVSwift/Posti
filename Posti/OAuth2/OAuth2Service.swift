@@ -1,8 +1,9 @@
 import UIKit
+import WebKit
 
 final class OAuth2Service {
-    
-    static private let shared = OAuth2Service()
+
+    static let shared = OAuth2Service()
     private let urlSession = URLSession.shared
     private var task: URLSessionTask?
     private var lastCode: String?
@@ -11,7 +12,6 @@ final class OAuth2Service {
         get { return OAuth2TokenStorage().token }
         set { OAuth2TokenStorage().token = newValue }
     }
-    
     
     func fetchAuthToken(code: String, handler: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
