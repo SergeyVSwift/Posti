@@ -10,29 +10,43 @@ import WebKit
 
 protocol ProfilePresenterProtocol {
     var view: ProfileViewControllerProtocol? { get set }
-    var tokenStorage: OAuth2TokenStorageProtocol { get set }
-    func logout()
+    func viewDidLoad()
 }
 
 final class ProfilePresenter: ProfilePresenterProtocol {
-    var tokenStorage: OAuth2TokenStorageProtocol
     weak var view: ProfileViewControllerProtocol?
+    private var profileImageServiceObserver: NSObjectProtocol?
+    var profileService = ProfileService.shared
     
-    init(tokenStorage: OAuth2TokenStorageProtocol) {
-        self.tokenStorage = tokenStorage
-    }
-    
-    func logout() {
-        tokenStorage.token = nil
-        clean()
-    }
-    
-    func clean() {
-        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            records.forEach { record in
-                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-            }
+    func viewDidLoad() {
+        
+        if let profile = self.profileService.profile {
+            view?.updateProfileDetails(profile: profile)
         }
+        
+        loadProfileImage()
+    }
+    
+    func loadProfileImage() {
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let url = URL(string: profileImageURL)
+        else { return }
+        
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(
+                forName: ProfileImageService.didChangeNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                guard let self = self else { return }
+                self.view?.updateAvatar(url: url)
+                if let profile = self.profileService.profile {
+                    self.view?.updateProfileDetails(profile: profile)
+                }
+            }
+        
+        view?.updateAvatar(url: url)
     }
 }
+

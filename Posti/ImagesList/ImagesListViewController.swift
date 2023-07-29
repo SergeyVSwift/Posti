@@ -1,6 +1,12 @@
 import UIKit
 import Kingfisher
 
+protocol ImagesListViewControllerProtocol: AnyObject {
+    var presenter: ImageListPresenterProtocol? { get set }
+    var photos: [Photo] { get set }
+    func updateTableViewAnimated(photos: [Photo])
+}
+
 final class ImagesListViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
@@ -10,6 +16,8 @@ final class ImagesListViewController: UIViewController {
     private let imagesListService = ImagesListService.shared
     private let alert = AlertPresenter()
     var photos: [Photo] = []
+    
+    var presenter: ImageListPresenterProtocol?
     
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()

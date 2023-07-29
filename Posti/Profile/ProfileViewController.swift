@@ -4,17 +4,31 @@ import WebKit
 
 protocol ProfileViewControllerProtocol: AnyObject {
     var presenter: ProfilePresenterProtocol? { get set }
+    func updateAvatar(url: URL)
+    func updateProfileDetails(profile: Profile?)
 }
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController, ProfileViewControllerProtocol  {
+    
+    func updateAvatar(url: URL) {
+        let processor = RoundCornerImageProcessor(cornerRadius: 35)
+        image.kf.setImage(with: url, options: [.processor(processor), .cacheSerializer(FormatIndicatedCacheSerializer.png)])
+    }
+    
+    func updateProfileDetails(profile: Profile?) {
+        guard let profile = profile else { return }
+        //guard let profile = profileService.profile else { return }
+        surnameLabel.text = profile.name
+        emailLabel.text = profile.loginName
+        someTextLabel.text = profile.bio
+    }
     
     var presenter: ProfilePresenterProtocol?
+    private var image = UIImageView()
     private let profileImage = UIImageView()
-    //private var logoutButton: UIButton!
     private let surnameLabel = UILabel()
     private let emailLabel = UILabel()
     private let someTextLabel = UILabel()
-    //  private let exitButton = UIButton()
     private let storageToken = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
     private let alertPresenter = AlertPresenter()
@@ -25,6 +39,7 @@ final class ProfileViewController: UIViewController {
             with: UIImage(named: "logoutbutton")!,
             target: self,
             action: #selector(self.didTapLogoutButton))
+        logoutButton.accessibilityIdentifier = "logoutButton"
         logoutButton.tintColor = UIColor(named: "YP Red")
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         return logoutButton
@@ -35,7 +50,7 @@ final class ProfileViewController: UIViewController {
         view.backgroundColor = .ypBlack
         configView()
         makeConstraints()
-        updateProfileDetails(profile: profileService.profile!)
+        updateProfileDetails(profile: profileService.profile)
         profileImageServiceObserver = NotificationCenter.default
             .addObserver(
                 forName: ProfileImageService.didChangeNotification,
@@ -92,7 +107,7 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
-    private func updateAvatar() {
+    func updateAvatar() {
         guard
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
@@ -110,15 +125,15 @@ final class ProfileViewController: UIViewController {
     private func setupActions() {
         logoutButton.addTarget(self, action: #selector(didTapLogoutButton), for: .touchUpInside)
     }
-
-     static func clean() {
-     HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-             records.forEach { record in
-                 WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-             }
-         }
-     }
+    
+    static func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
+        }
+    }
     
     @objc private func didTapLogoutButton() {
         let alert = UIAlertController(
@@ -149,20 +164,11 @@ final class ProfileViewController: UIViewController {
         ProfileImageService.shared.clean()
     }
     
-    private func logout() {
+    internal func logout() {
         OAuth2TokenStorage().token = nil
         ProfileViewController.clean()
         cleanServicesData()
         switchToSplashViewController()
-    }
-}
-
-extension ProfileViewController {
-    private func updateProfileDetails(profile: Profile?) {
-        guard let profile = profileService.profile else { return }
-        surnameLabel.text = profile.name
-        emailLabel.text = profile.loginName
-        someTextLabel.text = profile.bio
     }
 }
 

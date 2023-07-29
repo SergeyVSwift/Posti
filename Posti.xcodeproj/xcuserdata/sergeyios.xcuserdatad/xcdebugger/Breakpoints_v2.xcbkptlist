@@ -3,4 +3,145 @@
    uuid = "E0C6D517-E9DB-48DF-85CC-EB3A67987DA2"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostiTests/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "ProfileViewTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - 3560e554de6ec3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.__allocating_init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; PostiTests.ProfileViewTests"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - 9a73eb01c5b8ae7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; PostiTests.ProfileViewTests"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - f909f56940195200"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.__allocating_init(selector: ObjectiveC.Selector) -&gt; PostiTests.ProfileViewTests"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - cf8d9a64cc63bdc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.init(selector: ObjectiveC.Selector) -&gt; PostiTests.ProfileViewTests"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - b7db13201820c38b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.__allocating_init() -&gt; PostiTests.ProfileViewTests"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - 3998be8e78aeeb16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.init() -&gt; PostiTests.ProfileViewTests"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "0D4C629A-00C2-455F-8E81-8AD6523A225A - 434efc55ebc73f21"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PostiTests.ProfileViewTests.__deallocating_deinit"
+                  moduleName = "PostiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sergeyios/Desktop/projects/Posti/PostiTests/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "801D8614-3E89-457F-8480-1E537157EFEC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PostiTests/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ProfileViewTests"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

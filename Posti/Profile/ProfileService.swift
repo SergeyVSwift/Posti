@@ -6,12 +6,12 @@
 //
 import UIKit
 
-final class ProfileService {
+public final class ProfileService {
     static let shared = ProfileService()
     private(set) var profile: Profile?
     private var task: URLSessionTask?
     private let urlSession = URLSession.shared
-    
+
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
         
@@ -19,12 +19,12 @@ final class ProfileService {
         let session = URLSession.shared
         let task = session.objectTask(for: request) { [weak self] (result: Result<ProfileResult, Error>) in
             switch result {
-                case .success(let decodedObject):
-                    let profile = Profile(data: decodedObject)
-                    self?.profile = profile
-                    completion(.success(profile))
-                case .failure(let error):
-                    completion(.failure(error))
+            case .success(let decodedObject):
+                let profile = Profile(data: decodedObject)
+                self?.profile = profile
+                completion(.success(profile))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
         self.task = task
